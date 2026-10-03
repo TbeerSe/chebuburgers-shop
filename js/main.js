@@ -91,17 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initClearCart(cart, elements) {
-    elements.clearCartButton?.addEventListener('click', () => {
-      if (cart.isEmpty()) return;
+  const button = elements.clearCartButton;
+  if (!button) return;
 
-      const shouldClear = window.confirm(
-        'Удалить все товары из корзины?'
-      );
+  button.addEventListener('click', () => {
+    if (cart.isEmpty()) return;
 
-      if (!shouldClear) return;
-
-      cart.clear();
-      renderCart(cart, elements);
-    });
+    cart.clear();
+    renderCart(cart, elements);
+  });
   }
 });
