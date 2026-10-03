@@ -1,6 +1,7 @@
 // Всплывающее уведомление внизу экрана
 
 const TOAST_DURATION = 1800;
+const VISIBLE_CLASS = 'toast--visible';
 
 let hideTimer = null;
 
@@ -25,10 +26,10 @@ export function showToast(message) {
     window.clearTimeout(hideTimer);
   }
 
-  toast.hidden = false;
+  toast.classList.add(VISIBLE_CLASS);
 
   hideTimer = window.setTimeout(() => {
-    toast.hidden = true;
+    toast.classList.remove(VISIBLE_CLASS);
     hideTimer = null;
   }, TOAST_DURATION);
 }

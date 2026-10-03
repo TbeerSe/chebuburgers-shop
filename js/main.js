@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cartList: document.querySelector('#cart-list'),
     cartCount: document.querySelector('#cart-count'),
     navigationCartCount: document.querySelector('#navigation-cart-count'),
+    navigationCartCountValue: document.querySelector('#navigation-cart-count-value'),
     totalPrice: document.querySelector('#total-price'),
     clearCartButton: document.querySelector('#clear-cart'),
     emptyCartMessage: document.querySelector('#empty-cart'),

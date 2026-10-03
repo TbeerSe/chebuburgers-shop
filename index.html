@@ -46,7 +46,7 @@
         <a href="#contacts">Контакты</a>
         <a href="#cart">
           Корзина
-          <span class="navigation-cart-count" id="navigation-cart-count" aria-label="Количество товаров в корзине" aria-live="polite" aria-atomic="true">0</span>
+          <span class="navigation-cart-count" id="navigation-cart-count" aria-live="polite" aria-atomic="true"><span class="visually-hidden">Товаров в корзине: </span><span id="navigation-cart-count-value">0</span></span>
         </a>
       </nav>
     </div>
@@ -210,7 +210,7 @@
         </h2>
       </div>
 
-      <div id="empty-cart" class="empty-cart-message" role="status" aria-live="polite">
+      <div id="empty-cart" class="empty-cart-message" role="status" aria-live="polite" hidden>
         <div class="empty-cart-icon" aria-hidden="true">🛒</div>
         <p class="empty-cart-title">Корзина пока пустая</p>
         <p class="empty-cart-subtitle">Загляните в меню и выберите что-нибудь вкусное</p>
@@ -261,7 +261,7 @@
 
   <button class="scroll-top" id="scroll-top" type="button" aria-label="Наверх" hidden>↑</button>
 
-  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
   <script type="module" src="js/main.js"></script>
 </body>

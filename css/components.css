@@ -595,13 +595,15 @@
   font-weight: 700;
   box-shadow: 0 12px 30px rgba(48, 32, 23, 0.35);
   opacity: 0;
+  visibility: hidden;
   transform: translate(-50%, 20px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
   pointer-events: none;
 }
 
-.toast:not([hidden]) {
+.toast--visible {
   opacity: 1;
+  visibility: visible;
   transform: translate(-50%, 0);
 }
 

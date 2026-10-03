@@ -1,7 +1,7 @@
 // Валидация и отправка формы заказа
 
 import { validatePhoneInput, normalizePhone } from './phone.js';
-import { showOrderMessage, clearOrderMessage } from './ui.js';
+import { showOrderMessage, clearOrderMessage, renderCart } from './ui.js';
 
 export function initOrderForm(cart, elements) {
   const { orderForm, orderMessage } = elements;
@@ -33,6 +33,7 @@ export function initOrderForm(cart, elements) {
     }
 
     const submitButton = orderForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton ? submitButton.textContent : '';
     const formData = new FormData(orderForm);
 
     const order = {
@@ -63,6 +64,7 @@ export function initOrderForm(cart, elements) {
       const orderNumber = generateOrderNumber();
 
       cart.clear();
+      renderCart(cart, elements);
       orderForm.reset();
 
       showOrderMessage(
@@ -86,7 +88,7 @@ export function initOrderForm(cart, elements) {
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
-        submitButton.textContent = 'Оформить заказ';
+        submitButton.textContent = originalButtonText;
       }
     }
   });

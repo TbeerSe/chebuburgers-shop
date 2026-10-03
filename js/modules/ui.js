@@ -88,6 +88,7 @@ export function renderCart(cart, elements) {
     cartList,
     cartCount,
     navigationCartCount,
+    navigationCartCountValue,
     totalPrice,
     clearCartButton,
     emptyCartMessage,
@@ -103,9 +104,9 @@ export function renderCart(cart, elements) {
 
   if (cartCount) cartCount.textContent = `(${totalQuantity})`;
 
-  if (navigationCartCount) {
-    const prev = Number(navigationCartCount.textContent) || 0;
-    navigationCartCount.textContent = String(totalQuantity);
+  if (navigationCartCount && navigationCartCountValue) {
+    const prev = Number(navigationCartCountValue.textContent) || 0;
+    navigationCartCountValue.textContent = String(totalQuantity);
 
     if (totalQuantity > prev) {
       navigationCartCount.classList.remove('pulse');
@@ -145,7 +146,9 @@ export function showButtonFeedback(button) {
 export function showOrderMessage(el, message, type = 'success') {
   if (!el) return;
 
-  el.className = type === 'success' ? 'order-success' : 'order-error';
+  // Стили успеха уже заданы для #order-message по умолчанию,
+  // отдельный класс нужен только для ошибки.
+  el.className = type === 'error' ? 'order-error' : '';
   el.textContent = message;
 }
 
