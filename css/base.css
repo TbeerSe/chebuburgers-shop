@@ -1,0 +1,151 @@
+:root {
+  --cream: #fff8f1;
+  --cream-dark: #f7ecdf;
+  --white: #ffffff;
+  --orange: #ed5a24;
+  --orange-dark: #c94412;
+  --brown: #302017;
+  --text: #32251d;
+  --muted: #887970;
+  --border: #e7d9ca;
+  --green: #43895d;
+  --shadow: 0 14px 35px rgba(64, 37, 20, 0.1);
+  --header-height: 92px;
+  --container-width: 1180px;
+  --radius-large: 28px;
+  --radius-medium: 18px;
+  --radius-small: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--cream);
+  font-family: 'Manrope', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body,
+button,
+input {
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(237, 90, 36, 0.45);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--brown);
+  line-height: 1.05;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: clamp(42px, 6vw, 78px);
+  letter-spacing: -3px;
+}
+
+h2 {
+  margin-bottom: 14px;
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: -2px;
+}
+
+h3 {
+  font-size: 23px;
+}
+
+.header-content,
+.hero,
+.advantages,
+.menu-section,
+.about,
+.contacts,
+.cart {
+  width: min(calc(100% - 48px), var(--container-width));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+section {
+  scroll-margin-top: calc(var(--header-height) + 10px);
+}
+
+.hero,
+.advantages,
+.menu-section,
+.about,
+.contacts,
+.cart {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.section-heading {
+  max-width: 680px;
+  margin-bottom: 24px;
+}
+
+.section-label,
+.hero-label {
+  margin: 0 0 8px;
+  color: var(--orange);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.section-description,
+.hero-description {
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.card[hidden] {
+  display: none !important;
+}

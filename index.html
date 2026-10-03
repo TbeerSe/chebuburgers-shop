@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ЧебуБургер — быстрый и вкусный фастфуд</title>
+  <meta name="description" content="ЧебуБургер — сочные бургеры, хрустящая картошка и горячая чебупицца с доставкой.">
+  <meta name="theme-color" content="#ed5a24">
+  <meta name="author" content="ЧебуБургер">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ЧебуБургер — быстрый и вкусный фастфуд">
+  <meta property="og:description" content="Сочные бургеры, хрустящая картошка и горячая чебупицца. Заказывай с доставкой домой.">
+  <meta property="og:image" content="images/hero-burger.jpg">
+  <meta property="og:url" content="https://tbeerse.github.io/chebuburgers-shop/">
+  <meta property="og:site_name" content="ЧебуБургер">
+  <meta property="og:locale" content="ru_RU">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ЧебуБургер — быстрый и вкусный фастфуд">
+  <meta name="twitter:description" content="Сочные бургеры, хрустящая картошка и горячая чебупицца. Заказывай с доставкой домой.">
+  <meta name="twitter:image" content="images/hero-burger.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-content">
+      <a class="logo" href="#top" aria-label="ЧебуБургер — главная страница">
+        Чебу<span>Бургер</span>
+      </a>
+
+      <nav class="navigation" aria-label="Основная навигация">
+        <a href="#menu">Меню</a>
+        <a href="#about">О нас</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#cart">
+          Корзина
+          <span class="navigation-cart-count" id="navigation-cart-count" aria-label="Количество товаров в корзине" aria-live="polite" aria-atomic="true">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="hero-label">Вкусно, быстро, с любовью</p>
+        <h1 id="hero-title">ЧебуБургер<br>больше, чем просто перекус</h1>
+        <p class="hero-description">
+          Сочные бургеры, хрустящая картошка и горячая чебупицца.
+          Заказывай любимые блюда с доставкой прямо домой.
+        </p>
+        <a class="hero-button" href="#menu">Посмотреть меню</a>
+      </div>
+
+      <div class="hero-image">
+        <img src="images/hero-burger.jpg" alt="Аппетитный чебубургер на тарелке" width="800" height="600" fetchpriority="high">
+      </div>
+    </section>
+
+    <section class="advantages" aria-labelledby="advantages-title">
+      <h2 id="advantages-title">Почему выбирают нас</h2>
+
+      <div class="advantages-list">
+        <article class="advantage-card">
+          <div class="advantage-icon" aria-hidden="true">🍔</div>
+          <h3>Свежие продукты</h3>
+          <p>Готовим блюда из качественных продуктов каждый день.</p>
+        </article>
+
+        <article class="advantage-card">
+          <div class="advantage-icon" aria-hidden="true">⚡</div>
+          <h3>Быстрая доставка</h3>
+          <p>Привезём горячий заказ в удобное для вас время.</p>
+        </article>
+
+        <article class="advantage-card">
+          <div class="advantage-icon" aria-hidden="true">🍟</div>
+          <h3>Большие порции</h3>
+          <p>Щедрые порции, чтобы никто не остался голодным.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu" aria-labelledby="menu-title">
+      <div class="section-heading">
+        <p class="section-label">Выбирай любимое</p>
+        <h2 id="menu-title">Наше меню</h2>
+        <p class="section-description">Собери свой заказ из свежих блюд и напитков.</p>
+      </div>
+
+      <div class="menu-filters" aria-label="Фильтр меню">
+        <button class="filter-button active" type="button" data-category="all" aria-pressed="true">Всё меню</button>
+        <button class="filter-button" type="button" data-category="burgers" aria-pressed="false">Бургеры</button>
+        <button class="filter-button" type="button" data-category="snacks" aria-pressed="false">Закуски</button>
+        <button class="filter-button" type="button" data-category="drinks" aria-pressed="false">Напитки</button>
+      </div>
+
+      <div class="menu">
+        <article class="card" data-category="burgers" data-product-id="burger-1">
+          <span class="card-badge card-badge--hit">Хит</span>
+          <div class="food-image-wrapper">
+            <img class="food-image" src="images/burger.jpg" alt="Чебубургер" width="400" height="330" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3>Чебубургер</h3>
+            <p>Сочная котлета, свежие овощи и фирменный соус.</p>
+            <div class="card-footer">
+              <strong class="product-price">250 ₽</strong>
+              <button class="order-button" type="button" data-product="Чебубургер" data-price="250" aria-label="Добавить Чебубургер в корзину">Заказать</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="snacks" data-product-id="fries-1">
+          <div class="food-image-wrapper">
+            <img class="food-image" src="images/fries.jpg" alt="Картошка фри" width="400" height="330" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3>Картошка фри</h3>
+            <p>Хрустящая картошка с солью и фирменным соусом.</p>
+            <div class="card-footer">
+              <strong class="product-price">150 ₽</strong>
+              <button class="order-button" type="button" data-product="Картошка фри" data-price="150" aria-label="Добавить картошку фри в корзину">Заказать</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="snacks" data-product-id="chebupizza-1">
+          <span class="card-badge card-badge--new">Новинка</span>
+          <div class="food-image-wrapper">
+            <img class="food-image" src="images/chebupizza.jpg" alt="Чебупицца" width="400" height="330" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3>Чебупицца</h3>
+            <p>Сырная начинка, ветчина и хрустящее тесто.</p>
+            <div class="card-footer">
+              <strong class="product-price">220 ₽</strong>
+              <button class="order-button" type="button" data-product="Чебупицца" data-price="220" aria-label="Добавить Чебупиццу в корзину">Заказать</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="drinks" data-product-id="cola-1">
+          <div class="food-image-wrapper">
+            <img class="food-image" src="images/cola.jpg" alt="Газированный напиток" width="400" height="330" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3>Газированный напиток</h3>
+            <p>Освежающий напиток объёмом 0,5 литра.</p>
+            <div class="card-footer">
+              <strong class="product-price">120 ₽</strong>
+              <button class="order-button" type="button" data-product="Газированный напиток" data-price="120" aria-label="Добавить газированный напиток в корзину">Заказать</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <p class="section-label">Немного о нас</p>
+        <h2 id="about-title">Готовим с душой</h2>
+      </div>
+      <p>
+        ЧебуБургер — это место, где можно быстро и вкусно перекусить.
+        Мы готовим блюда из свежих продуктов и каждый день радуем наших гостей.
+      </p>
+    </section>
+
+    <section class="contacts" id="contacts" aria-labelledby="contacts-title">
+      <div class="section-heading">
+        <p class="section-label">Мы всегда на связи</p>
+        <h2 id="contacts-title">Контакты</h2>
+      </div>
+
+      <address class="contacts-list">
+        <p>
+          <span class="contact-icon" aria-hidden="true">📍</span>
+          <span>Москва, улица Вкусная, 15</span>
+        </p>
+        <p>
+          <span class="contact-icon" aria-hidden="true">📞</span>
+          <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+        </p>
+        <p>
+          <span class="contact-icon" aria-hidden="true">🕒</span>
+          <span>Работаем каждый день с 10:00 до 23:00</span>
+        </p>
+      </address>
+    </section>
+
+    <section class="cart" id="cart" aria-labelledby="cart-title">
+      <div class="section-heading">
+        <p class="section-label">Почти готово</p>
+        <h2 id="cart-title">
+          Корзина
+          <span id="cart-count" aria-live="polite" aria-atomic="true">(0)</span>
+        </h2>
+      </div>
+
+      <div id="empty-cart" class="empty-cart-message" role="status" aria-live="polite">
+        <div class="empty-cart-icon" aria-hidden="true">🛒</div>
+        <p class="empty-cart-title">Корзина пока пустая</p>
+        <p class="empty-cart-subtitle">Загляните в меню и выберите что-нибудь вкусное</p>
+        <a class="empty-cart-button" href="#menu">Перейти в меню</a>
+      </div>
+
+      <ul id="cart-list" aria-label="Товары в корзине"></ul>
+
+      <div class="cart-summary">
+        <p class="total">
+          <span>Итого:</span>
+          <span><span id="total-price">0</span> ₽</span>
+        </p>
+        <button id="clear-cart" type="button" disabled>Очистить корзину</button>
+      </div>
+
+      <form id="order-form" novalidate>
+        <div class="form-heading">
+          <h3>Оформление заказа</h3>
+          <p>Заполните данные, и мы свяжемся с вами для подтверждения.</p>
+        </div>
+
+        <div class="form-field">
+          <label for="customer-name">Ваше имя</label>
+          <input type="text" id="customer-name" name="customerName" placeholder="Например, Анна" autocomplete="name" minlength="2" maxlength="60" required>
+        </div>
+
+        <div class="form-field">
+          <label for="customer-phone">Номер телефона</label>
+          <input type="tel" id="customer-phone" name="customerPhone" placeholder="+7 (999) 123-45-67" autocomplete="tel" inputmode="tel" maxlength="18" required>
+        </div>
+
+        <div class="form-field">
+          <label for="customer-address">Адрес доставки</label>
+          <input type="text" id="customer-address" name="customerAddress" placeholder="Улица, дом, квартира" autocomplete="street-address" minlength="5" maxlength="200" required>
+        </div>
+
+        <button class="submit-order-button" type="submit">Оформить заказ</button>
+      </form>
+
+      <p id="order-message" role="status" aria-live="polite" aria-atomic="true"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 ЧебуБургер. Вкусно и быстро.</p>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" type="button" aria-label="Наверх" hidden>↑</button>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
