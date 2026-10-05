@@ -228,6 +228,10 @@
       </div>
 
       <form id="order-form" novalidate>
+    <input type="hidden" name="access_key" value="ТВОЙ_КЛЮЧ_WEB3FORMS">
+    <input type="hidden" name="subject" value="Новый заказ с сайта ЧебуБургер">
+    <input type="hidden" name="from_name" value="ЧебуБургер">
+    <input type="checkbox" name="botcheck" style="display:none">
         <div class="form-heading">
           <h3>Оформление заказа</h3>
           <p>Заполните данные, и мы свяжемся с вами для подтверждения.</p>
@@ -249,7 +253,7 @@
         </div>
 
         <button class="submit-order-button" type="submit">Оформить заказ</button>
-      </form>
+      </>
 
       <p id="order-message" role="status" aria-live="polite" aria-atomic="true"></p>
     </section>
