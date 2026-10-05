@@ -139,20 +139,16 @@ async function sendOrderToWeb3Forms(order, formData) {
 
   const payload = new FormData();
 
-  // Access key и мета-поля из скрытых input
   payload.append('access_key', formData.get('access_key'));
   payload.append('subject', formData.get('subject') || 'Новый заказ');
   payload.append('from_name', formData.get('from_name') || 'Сайт');
 
-  // Данные заказчика
-  payload.append('Имя', order.customer.name);
-  payload.append('Телефон', order.customer.phone);
-  payload.append('Адрес', order.customer.address);
-
-  // Состав заказа
-  payload.append('Состав заказа', itemsText);
-  payload.append('Итого', `${order.total} ₽`);
-  payload.append('Дата', new Date().toLocaleString('ru-RU'));
+  payload.append('Name', order.customer.name);
+  payload.append('Phone', order.customer.phone);
+  payload.append('Address', order.customer.address);
+  payload.append('Items', itemsText);
+  payload.append('Total', `${order.total} ₽`);
+  payload.append('Date', new Date().toLocaleString('ru-RU'));
 
   const response = await fetch('https://api.web3forms.com/submit', {
     method: 'POST',
