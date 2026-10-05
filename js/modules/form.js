@@ -55,11 +55,7 @@ export function initOrderForm(cart, elements) {
     clearOrderMessage(orderMessage);
 
     try {
-      /*
-       * Пока backend не подключён, заказ имитируется локально.
-       * Позже этот блок можно заменить на fetch-запрос к API.
-       */
-      await fakeOrderRequest(order);
+      await sendOrderToWeb3Forms(order, formData);
 
       const orderNumber = generateOrderNumber();
 
@@ -133,11 +129,41 @@ function generateOrderNumber() {
   return Math.floor(1000 + Math.random() * 9000);
 }
 
-function fakeOrderRequest(order) {
-  return new Promise((resolve) => {
-    window.setTimeout(() => {
-      console.log('Данные заказа:', order);
-      resolve(order);
-    }, 600);
+async function sendOrderToWeb3Forms(order, formData) {
+  const itemsText = order.items
+    .map(
+      (item) =>
+        `${item.name} × ${item.quantity} = ${item.price * item.quantity} ₽`
+    )
+    .join('\n');
+
+  const payload = new FormData();
+
+  // Access key и мета-поля из скрытых input
+  payload.append('access_key', formData.get('access_key'));
+  payload.append('subject', formData.get('subject') || 'Новый заказ');
+  payload.append('from_name', formData.get('from_name') || 'Сайт');
+
+  // Данные заказчика
+  payload.append('Имя', order.customer.name);
+  payload.append('Телефон', order.customer.phone);
+  payload.append('Адрес', order.customer.address);
+
+  // Состав заказа
+  payload.append('Состав заказа', itemsText);
+  payload.append('Итого', `${order.total} ₽`);
+  payload.append('Дата', new Date().toLocaleString('ru-RU'));
+
+  const response = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: payload,
   });
+
+  const result = await response.json();
+
+  if (!response.ok || !result.success) {
+    throw new Error(result.message || 'Ошибка отправки формы');
+  }
+
+  return result;
 }
